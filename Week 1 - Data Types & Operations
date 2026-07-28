@@ -1,0 +1,78 @@
+# --- 1. Int ---
+age = 20
+year = 2026
+print(age + 10) # 30 (a number)
+print(age // 3) # 6 (without float)
+print(age % 3) # 2 (only the remainer)
+
+# --- 2. float ---
+pi = 3.14159
+radius = 3.54
+area = pi * radius ** 2
+print(area)
+print(0.1 + 0.2) # Not printing 0.3
+
+# --- 3. str ---
+name = "Man"
+sent1 = "Hello"
+sent2 = "World"
+print(sent1 + " " + sent2)
+
+text = " Python "
+print(text.strip()) # remove the space
+print(text.upper()) # all become upperCase
+print(text.lower()) # all become lowerCase
+print(text.replace("P" , "J")) # replace P to J
+
+# --- 3.1 f-string ---
+age = 30
+print(f"I am {age} years old")
+
+# --- 4. bool ---
+is_sunny = True
+is_rainy = False
+print(not is_rainy)
+print(10 > 5) # True
+print(10 != 5) # True
+
+# --- 5. list ---
+fruit = ["apple" , "banana" , "cherry"]
+numbers = [1 , 2 , 3 , 4 , 5]
+mixed = ["apple" , 1 , True , 3.14] # can put different types into a list
+
+print(fruit[0]) # the first one
+print(fruit[-1]) # the last one
+
+print(fruit[::-1]) # reverse
+
+# --- 5.1 append/extand/slicing ---
+fruits = ["apple" , "banana"]
+
+# append
+fruits.append("cherry") # add an element into the list
+print(fruits)
+
+# extend
+other = ["orange","grape"] 
+fruits.extend(other) # add another list into the list
+print(fruits)
+
+# insert
+fruits.insert(1,"mango") # add an element into specific index (in this case it will insert to the second one)
+print(fruits)
+
+# --- 5.2 list operations ---
+fruits = ["apple" , "banana"]
+
+# append
+fruits.append("cherry") # add an element into the list
+print(fruits)
+
+# extend
+other = ["orange","grape"] 
+fruits.extend(other) # add another list into the list
+print(fruits)
+
+# insert
+fruits.insert(1,"mango") # add an element into specific index (in this case it will insert to the second one)
+print(fruits)
