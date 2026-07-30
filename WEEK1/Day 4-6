@@ -1,0 +1,22 @@
+# --- if/else for/while---
+# 1.
+import random
+num = 6
+chance = 3
+
+while chance > 0:
+    guess = int(input("Your guess: "))
+    if guess == num:
+        print("You win")
+        break
+
+    chance -= 1
+    if chance == 0:
+        print("All chance is used! You lose")
+        print(f"The correct answer is {num}")
+        break
+
+    if guess > num:
+        print("Too high! Try again")
+    else:
+        print("Too low! Try again")
