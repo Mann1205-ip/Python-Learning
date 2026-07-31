@@ -37,3 +37,25 @@ for i in range(1,10):
             print(f"{j} * {i} = {j * i}", end="\t")
 
     print()
+
+# --- loops EX ---
+# --- 1 ---
+user_name = {
+    "admin" : "666888",
+    "zhangsan" : "123456",
+    "taoge" : "888666"
+}
+
+while True:
+    acc = input("Enter your account name: ")
+    password = input("Enter your password: ")
+
+    if acc == "" or password == "" :
+        print("You cannot enter empty password or account name!")
+        continue
+    else:
+        if acc in user_name and password == user_name[acc]:
+            print("You login in successfully!")
+            break
+        else:
+            print("Account name or password is incorrect!")
