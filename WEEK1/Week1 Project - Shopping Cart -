@@ -1,0 +1,148 @@
+# --- Project 1 ---
+sellItems = {
+    "Bread" : 3,
+    "Milk" : 7,
+    "Eggs" : 5,
+    "Rice" : 28,
+    "Chicken" : 12,
+    "Cooking Oil" : 8,
+    "Sugar" : 3,
+    "Salt" : 2,
+    "Coffee" : 16,
+    "Biscuits" : 7
+}
+
+account = {
+    "Man" : 123456,
+    "Ben" : 56789,
+}
+
+membership = False
+cart = []
+
+def menuBar():
+    while True:
+        print("="*30)
+        print("1. Login")
+        print("2. AddToCart")
+        print("3. DelCart")
+        print("4. CheckYourCart")
+        print("5. Checkout")
+        print("6. Quit")
+        print("="*30)
+        action = input("> ")
+        if action == "1":
+            login()
+        elif action == "2":
+            addToCart()
+        elif action == "3":
+            delCart()
+        elif action == "4":
+            checkCart()
+        elif action == "5":
+            checkOut()
+        elif action == "6":
+            break
+
+def login():
+    global account
+    global membership
+    if membership:
+        print("You have login already!")
+        return
+    print("="*30)
+    accname = input("Name: ")
+    accpass = int(input("Password: "))
+    if accname in account and accpass == account[accname]:
+        print("Login successfully")
+        membership = True
+    else:
+        print("Unfound user. Please try again!")
+        login()
+
+def addToCart():
+    global sellItems
+    global cart
+    while True:
+        if not sellItems:
+            print("Anything is sold old!")
+            break
+
+        displayItems()
+        addAction = input("> ").strip()
+
+        if addAction.lower() == "back":
+            break
+        try:
+            index = int(addAction) - 1
+            items_list = list(sellItems.items())
+
+            items_name, items_price = items_list[index]
+
+            cart.append({
+                items_name : items_price
+            })
+
+            del sellItems[items_name]
+            
+        except ValueError:
+            print("Please input correct information")
+        except KeyError:
+            print("All items is sold out!")
+
+
+def delCart():
+    global cart
+    global sellItems
+    while True:
+        for i,values in enumerate(cart):
+            print(f"{i+1}. {values}")
+        items_del = input("> ")
+
+        if items_del.lower() == "back":
+            break
+
+
+        sellItems.update(cart[int(items_del) - 1])
+        del cart[int(items_del) - 1]
+        
+
+        print("="*30)
+        print("Delete successfully!")
+        print("back to menu (back)")
+        print("="*30)
+
+
+def checkOut():
+    global cart
+    global membership
+    Total = 0
+    cart_dict = {}
+    for item in cart:
+        cart_dict.update(item)
+
+    for values in cart_dict.values():
+        Total += values
+
+    if membership:
+        print("="*30)
+        print("MEMBERSHIP DISCOUNT".center(30))
+        print("="*30)
+        print("Since you are our membership, You will have 10% of this time!")
+        print(f"Total: ${Total*0.9:.2f}")
+    else:
+        print(f"Total: ${Total}")
+
+def checkCart():
+    global cart
+    for i in cart :
+        print(i)
+
+def displayItems():
+    print("="*30)
+    for i, (key, values) in enumerate(sellItems.items(), 1):
+        print(f"{i}. {key} : ${values}")
+    print("back to menu (back)")
+    print("="*30)
+
+menuBar()
