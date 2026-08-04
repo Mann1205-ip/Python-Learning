@@ -1,0 +1,14 @@
+nums = []
+
+for i in range(10):
+    num = int(input("> "))
+    nums.append(num)
+
+print("The List: ", nums)
+
+nums.sort()
+print("Sorted List: ", nums)
+
+print("The smallest: ", nums[0])
+print("The largest: ", nums[-1])
+print("The average: ", sum(nums)/2)
