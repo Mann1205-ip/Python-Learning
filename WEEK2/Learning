@@ -21,3 +21,39 @@ num_list = [12, 32, 45, 77, 80, 92, 33, 57, 97, 98, 110, 111, 122]
 new_list = [i ** 2 for i in num_list if i % 2 == 0]
 
 print(new_list)
+
+# --- tuple ---
+students = (
+    ("S001", "王林", 85, 92, 78),
+    ("S002", "李婉", 92, 88, 95),
+    ("S003", "十三", 78, 85, 82),
+    ("S004", "曾牛", 88, 79, 91),
+    ("S005", "周轶", 95, 96, 89),
+    ("S006", "王卓", 76, 82, 77),
+    ("S007", "红蝶", 89, 91, 94),
+    ("S008", "徐立国", 75, 69, 82),
+    ("S009", "许木", 86, 89, 98),
+    ("S010", "通天", 66, 59, 72)
+)
+
+
+print("No\t\tName\t\tChinese\t\tMath\t\tEnglish\t\tTotal\t\tAverage")
+for id, name, chinese, math, eng in students:
+    total = chinese + math + eng
+    avg = total / 3
+    print(f"{id}\t\t{name}\t\t{chinese}\t\t{math}\t\t{eng}\t\t{total}\t\t{avg:.1f}")
+print("=" * 30)
+
+chinese_score = [s[2] for s in students]
+math_score = [s[3] for s in students]
+eng_score = [s[4] for s in students]
+
+print(f"Chinese Lowest: {min(chinese_score)}\nChinese Highest: {max(chinese_score)}\nChinese Average: {sum(chinese_score)/len(chinese_score):.1f}")
+print()
+print(f"Math Lowest: {min(math_score)}\nMath Highest: {max(math_score)}\nMath Average: {sum(math_score)/len(math_score):.1f}")
+print()
+print(f"Eng Lowest: {min(eng_score)}\nEng Highest: {max(eng_score)}\nEng Average: {sum(eng_score)/len(eng_score):.1f}")
+
+over_90 = [stu for stu in students if sum(stu[2:])/3 >= 90]
+for i in over_90:
+    print(i)
