@@ -1,0 +1,33 @@
+# 選修足球學生名單
+football_set = {"王林", "曾牛", "徐立國", "遁天", "天運子", "韓立", "厲飛雨", "烏丑", "紫受"}
+
+# 選修籃球學生名單
+basketball_set = {"張鐵", "要居仁", "王林", "姜老道", "曾牛", "王蟬", "韓立", "天運子", "李化元", "厲飛雨", "雲露"}
+
+# 選修法語學生名單
+french_set = {"許木", "王卓", "十三", "虎咆", "姜老道", "天運子", "紅螺", "厲飛雨", "韓立", "曾牛"}
+
+# 選修美術學生名單
+art_set = {"遁天", "天運子", "韓立", "虎咆", "姜老道", "紫靈"}
+
+# 1.
+print(french_set & art_set)
+
+# 2.
+print(football_set & basketball_set & french_set & art_set)
+
+# 3.
+print(football_set - basketball_set)
+
+# -- 3.1 ---
+fb_set = {s for s in football_set if s not in basketball_set}
+print(fb_set)
+
+# 4.
+all_set = football_set | basketball_set | french_set | art_set
+print(all_set)
+
+all_list = [*basketball_set, *football_set, *french_set, *art_set]
+
+for s in all_set:
+    print(f"{s} choose {all_list.count(s)} course(s)")
